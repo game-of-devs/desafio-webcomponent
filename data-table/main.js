@@ -37,7 +37,10 @@ class DataTable extends HTMLElement {
            
            for (const key in item){
                let tdElement = document.createElement("td");
-               tdElement.innerText = item[key];
+               if(typeof(item[key]) === 'object')
+                    tdElement.innerText = this.serializeObject(item[key]); 
+               else
+                    tdElement.innerText = item[key];
                trElement.append(tdElement);
            }
 
@@ -45,6 +48,18 @@ class DataTable extends HTMLElement {
        });
 
        return tbodyElement;
+    }
+
+    serializeObject(obj){
+        const result = [];
+        for (const key in obj) {
+            if(typeof(obj[key]) === 'object')
+                result.push(`${key}: ${this.serializeObject(obj[key])}`);
+            else
+                result.push(`${key}:${obj[key]}`);
+        }
+
+        return result.join(", ");
     }
 }
 
