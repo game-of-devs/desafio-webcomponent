@@ -12,3 +12,5 @@ Deve-se ser feito um **Fork** desse projeto para a implementação e usados as u
  - https://jsonplaceholder.typicode.com/posts
  - https://jsonplaceholder.typicode.com/users
  - https://jsonplaceholder.typicode.com/comments
+
+Exemplo URL: ./data-table 
