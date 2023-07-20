@@ -15,6 +15,9 @@ class DataTable extends HTMLElement {
         tableElement.appendChild(this.createBodyElement(data));
         
         this.appendChild(tableElement);
+
+        const event = new Event('populate');
+        this.dispatchEvent(event);
     }
 
     createHeadElement(data){
